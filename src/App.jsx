@@ -6,10 +6,10 @@ const projects = [
   { 
     id: 1, 
     title: "Cat-astrophe", 
-    description: "A feline-themed FPS game where players navigate through a cat-infested city.",
+    description: "A feline-themed FPS game where players navigate through a cat-infested map.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/3X-iqFRGqbc",
-    detailedDescription: "Cat-astrophe is an innovative FPS game that puts players in a city overrun by mischievous cats. As a dog-loving protagonist, your mission is to restore order using non-lethal weapons like water guns and catnip grenades. The game features advanced AI for cat behavior, realistic fur rendering, and a dynamic day-night cycle that affects cat activity. I implemented a custom physics engine to simulate realistic cat movements and interactions with the environment. One of the biggest challenges was optimizing the game to handle hundreds of cats on screen simultaneously without compromising performance."
+    detailedDescription: "Cat-astrophe is an innovative FPS game that puts players in a city overrun by mischievous cats. As a dog-loving protagonist, your mission is to restore order using non-lethal weapons like water guns and catnip grenades."
   },
   { 
     id: 2, 
@@ -17,7 +17,7 @@ const projects = [
     description: "A doggy puzzle adventure set in a vast, mysterious dungeon filled with canine-themed challenges.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    detailedDescription: "MegaDungeon is a charming puzzle adventure game that follows the journey of a brave pup through a labyrinthine dungeon. Each level is designed as a unique puzzle, incorporating dog-themed elements like bones, squeaky toys, and fire hydrants. I developed a procedural generation system for the dungeon layouts, ensuring that no two playthroughs are the same. The game features a unique 'bark' mechanic that allows players to interact with the environment in various ways. One of the main challenges was creating an intuitive hint system that guides players without spoiling the puzzles."
+    detailedDescription: "MegaDungeon is a charming puzzle adventure game that follows the journey of a brave pup through a labyrinthine dungeon collecting bones. Each level is designed as a unique puzzle"
   },
   { 
     id: 3, 
@@ -25,7 +25,7 @@ const projects = [
     description: "A futuristic platformer where players explore a newly discovered planet with unique gravity mechanics.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/C0DPdy98e4c",
-    detailedDescription: "Neo-Planet is a cutting-edge platformer set on an alien world with ever-changing gravitational fields. Players must navigate through exotic landscapes, solving puzzles and overcoming obstacles that behave differently based on the local gravity. I implemented a dynamic gravity system that allows for seamless transitions between different gravitational zones, creating mind-bending gameplay scenarios. The game features a unique art style inspired by retro sci-fi, with all assets procedurally generated to create a truly alien feel. One of the biggest technical challenges was optimizing the physics calculations to maintain smooth performance across various platforms."
+    detailedDescription: "Neo-Planet is a cutting-edge platformer set on an post-apocalyptic world with some enemies and wall jumps"
   },
   { 
     id: 4, 
@@ -33,15 +33,11 @@ const projects = [
     description: "My first Unity FPS, featuring a post-apocalyptic world overrun by the undead.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/M5QY2_8704o",
-    detailedDescription: "Another Zombie Game was my first foray into Unity development, created as a learning project to understand FPS mechanics and AI behavior. Set in a post-apocalyptic world, players must survive waves of increasingly difficult zombies while scavenging for resources. I implemented a dynamic difficulty system that adjusts based on player performance, ensuring a challenging experience for all skill levels. The game features a crafting system allowing players to create unique weapons and defenses. One of the main challenges I faced was optimizing the zombie AI to handle large numbers of enemies without impacting performance."
-  },
-  { 
-    id: 5, 
-    title: "Baloran", 
+    detailedDescription: "Another Zombie Game was my first foray into Unity development, created as a learning project to understand FPS mechanics and AI behavior. Set in a post-apocalyptic world, players must survive waves of increasingly difficult zombies.",
     description: "Multiplayer FPS using Photon, set in a fantasy world where magic and technology collide.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/9bZkp7q19f0",
-    detailedDescription: "Baloran is an ambitious multiplayer FPS that blends high fantasy with futuristic technology. Using the Photon networking framework, I created a seamless multiplayer experience that supports up to 64 players in massive battle arenas. The game features a unique class system where players can customize their characters by combining different magical abilities with high-tech weaponry. I developed a sophisticated matchmaking system that balances teams based on player skill and chosen classes. One of the most significant challenges was implementing client-side prediction and server reconciliation to ensure smooth gameplay even under varying network conditions."
+    detailedDescription: "Baloran is an ambitious multiplayer FPS that blends high fantasy with futuristic technology. Using the Photon networking framework, I created a seamless multiplayer experience that supports up to 8 players in massive battle arenas."
   },
 ]
 
