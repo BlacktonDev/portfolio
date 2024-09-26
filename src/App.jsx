@@ -33,7 +33,11 @@ const projects = [
     description: "My first Unity FPS, featuring a post-apocalyptic world overrun by the undead.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/M5QY2_8704o",
-    detailedDescription: "Another Zombie Game was my first foray into Unity development, created as a learning project to understand FPS mechanics and AI behavior. Set in a post-apocalyptic world, players must survive waves of increasingly difficult zombies.",
+    detailedDescription: "Another Zombie Game was my first foray into Unity development, created as a learning project to understand FPS mechanics and AI behavior. Set in a post-apocalyptic world, players must survive waves of increasingly difficult zombies"
+  },
+  { 
+    id: 5, 
+    title: "Baloran", 
     description: "Multiplayer FPS using Photon, set in a fantasy world where magic and technology collide.",
     image: "src/RomoUnreal.png",
     video: "https://www.youtube.com/embed/9bZkp7q19f0",
