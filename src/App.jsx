@@ -47,6 +47,7 @@ const projects = [
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [scrollPosition, setScrollPosition] = useState(0)
 
   const closeModal = useCallback((e) => {
     if (e.target.classList.contains('modal-overlay')) {
@@ -61,69 +62,89 @@ export default function App() {
       document.removeEventListener('click', closeModal)
     }
 
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
       document.removeEventListener('click', closeModal)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [selectedProject, closeModal])
 
   return (
-    <div className="min-h-screen bg-gray-300 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto bg-gray-800 text-white min-h-screen rounded-3xl overflow-hidden shadow-2xl">
-        <header className="bg-gray-900 py-6 px-8">
-          <div className="container mx-auto">
-            <h1 className="text-4xl font-bold">José Antonio Romo Terán</h1>
-            <p className="text-xl mt-2">Video Game Programming Engineer</p>
-          </div>
-        </header>
+    <div className="min-h-screen bg-gray-300">
+      <section className="min-h-screen flex flex-col justify-center items-center p-4 bg-gray-800 text-white">
+        <img src="src/RomoUnreal.png" alt="José Antonio Romo Terán" className="w-64 h-64 rounded-full mb-8 object-cover shadow-lg" />
+        <h1 className="text-4xl font-bold mb-4">José Antonio Romo Terán</h1>
+        <h2 className="text-2xl mb-6">Video Game Programming Engineer</h2>
+        <p className="text-lg leading-relaxed max-w-2xl text-center mb-8">
+          As a passionate Video Game Programming Engineer, I specialize in creating immersive and engaging gaming experiences. 
+          With expertise in various game engines and programming languages, I bring ideas to life through code, 
+          crafting intricate game mechanics and optimizing performance for seamless gameplay.
+        </p>
+        <div className="flex space-x-6">
+          <a href="https://github.com/BlacktonDev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+            <FaGithub size={40} />
+          </a>
+          <a href="https://linkedin.com/in/antonioromot" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
+            <FaLinkedin size={40} />
+          </a>
+          <a href="https://twitter.com/cosio_joaquin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 transition-colors">
+            <FaTwitter size={40} />
+          </a>
+        </div>
+      </section>
 
-        <main className="container mx-auto px-8 py-12">
-          <section className="mb-16 flex flex-col md:flex-row items-center">
-            <img src="src/RomoUnreal.png" alt="Profile" className="w-64 h-64 rounded-full mb-8 md:mb-0 md:mr-12 object-cover shadow-lg" />
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Professional Description</h2>
-              <p className="text-lg leading-relaxed">
-                As a passionate Video Game Programming Engineer, I specialize in creating immersive and engaging gaming experiences. 
-                With expertise in various game engines and programming languages, I bring ideas to life through code, 
-                crafting intricate game mechanics and optimizing performance for seamless gameplay.
-              </p>
-            </div>
-          </section>
+      <section 
+        className="min-h-screen flex flex-col justify-center items-center p-4 bg-gray-700 text-white"
+        style={{
+          opacity: Math.min(1, (scrollPosition - window.innerHeight * 0.5) / (window.innerHeight * 0.5)),
+          transform: `translateY(${Math.max(0, 100 - scrollPosition * 0.1)}px)`
+        }}
+      >
+        <h2 className="text-3xl font-bold mb-6">Proyecto Chido</h2>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-6 max-w-2xl">
+          <h3 className="text-2xl font-semibold mb-4">My Principal Project</h3>
+          <img src="src/RomoUnreal.png" alt="Proyecto Chido" className="w-full h-64 object-cover rounded-lg mb-4" />
+          <p className="text-gray-300 mb-4">
+            "Proyecto Chido" is an innovative game that combines elements of strategy, 
+            puzzle-solving, and real-time action. Set in a vibrant, ever-changing world, 
+            players must navigate complex challenges while uncovering a rich, 
+            interconnected narrative.
+          </p>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+            Learn More
+          </button>
+        </div>
+      </section>
 
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8">My Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <button
-                  key={project.id}
-                  onClick={() => setSelectedProject(project)}
-                  className="bg-gray-700 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
-                >
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-                    <p className="text-gray-300">{project.description}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Connect with Me</h2>
-            <div className="flex space-x-6">
-              <a href="https://github.com/BlacktonDev" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
-                <FaGithub size={40} />
-              </a>
-              <a href="https://linkedin.com/in/antonioromot" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
-                <FaLinkedin size={40} />
-              </a>
-              <a href="https://twitter.com/cosio_joaquin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 transition-colors">
-                <FaTwitter size={40} />
-              </a>
-            </div>
-          </section>
-        </main>
-      </div>
+      <section 
+        className="min-h-screen p-4 bg-gray-600 text-white"
+        style={{
+          opacity: Math.min(1, (scrollPosition - window.innerHeight * 1.5) / (window.innerHeight * 0.5)),
+          transform: `translateY(${Math.max(0, 200 - scrollPosition * 0.1)}px)`
+        }}
+      >
+        <h2 className="text-3xl font-bold mb-8 text-center">Other Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {projects.map((project) => (
+            <button
+              key={project.id}
+              onClick={() => setSelectedProject(project)}
+              className="bg-gray-700 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
+            >
+              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
+                <p className="text-gray-300">{project.description}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
 
       {selectedProject && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 modal-overlay">
