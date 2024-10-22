@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin} from 'react-icons/fa'
 import { SiUnrealengine, SiUnity } from 'react-icons/si'
 import './App.css'
+import { HiPaintBrush } from 'react-icons/hi2'
 
 const projects = [
   { 
@@ -87,7 +88,7 @@ export default function App() {
     <div className="w-full min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <div className="w-full overflow-x-hidden">
         <section className="h-screen w-full flex flex-col justify-center items-center p-0 bg-gray-900">
-          <img src="RomoUnreal.png" alt="José Antonio Romo Terán" className="w-64 h-64 rounded-full mb-8 object-cover shadow-lg" />
+          <img src="dev.png" alt="José Antonio Romo Terán" className="w-64 h-64 rounded-full mb-8 object-cover shadow-lg" />
           <h1 className="text-4xl font-bold mb-4">José Antonio Romo Terán</h1>
           <h2 className="text-2xl mb-6">Video Game Programming Engineer</h2>
           <p className="text-lg leading-relaxed max-w-2xl text-center mb-8">
@@ -102,9 +103,6 @@ export default function App() {
             <a href="https://linkedin.com/in/antonioromot" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
               <FaLinkedin size={40} />
             </a>
-            <a href="https://twitter.com/cosio_joaquin" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 transition-colors">
-              <FaTwitter size={40} />
-            </a>
           </div>
         </section>
 
@@ -115,15 +113,15 @@ export default function App() {
             transition: 'opacity 0.5s ease-in-out'
           }}
         >
-          <h2 className="text-3xl font-bold mb-6">Strain: Cursed Miracle</h2>
+          <h2 className="text-3xl font-bold mb-6">Work in Progress</h2>
           <div className="bg-gray-700 rounded-lg shadow-lg p-6 max-w-2xl">
             <h3 className="text-2xl font-semibold mb-4">My Principal Project</h3>
-            <img src="RomoUnreal.png" alt="Proyecto Chido" className="w-full h-64 object-cover rounded-lg mb-4" />
+            <img src="RomoUnreal.png" alt="Strain: Cursed Miracle" className="w-full h-64 object-cover rounded-lg mb-4" />
             <p className="text-gray-300 mb-4">
-              "Proyecto Chido" is an innovative game that combines elements of Survival Horror, 
-              puzzle-solving, and real-time action. Set in a vibrant, ever-changing world, 
+              "Strain: Cursed Miracle" is an innovative game that combines elements of Survival Horror, 
+              puzzle-solving, and real-time action. Set in a post-apocalyptic, ever-changing world, 
               players must navigate complex challenges while uncovering a rich, 
-              interconnected narrative.
+              interconnected narrative in a world full of abominations.
             </p>
             <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
               Learn More
