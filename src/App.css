@@ -34,7 +34,11 @@
 }
 
 .card {
+  position: relative;
+  margin: auto;
   padding: 2em;
+  overflow-y: auto; /* Habilita el desplazamiento dentro de la tarjeta si es necesario */
+  max-height: 80vh; /* Limita la altura de la tarjeta */
 }
 
 .read-the-docs {
