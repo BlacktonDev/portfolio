@@ -78,8 +78,8 @@ const projects = [
 
 const ProjectModal = ({ project, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 modal-overlay z-50 overflow-y-auto">
-      <div className="bg-gray-800 rounded-2xl p-8 max-w-4xl w-full my-8" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 modal-overlay z-50">
+      <div className="bg-gray-800 rounded-2xl p-8 max-w-4xl w-full max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-4xl font-bold mb-6 text-white text-center">{project.title}</h2>
         <p className="text-xl text-gray-300 mb-8 text-center font-semibold">{project.description}</p>
         
