@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiUnrealengine, SiUnity } from 'react-icons/si'
 import './App.css'
-
+// meter en const.js como export const ----------------
 const projects = [
   {
     id: 1,
@@ -75,7 +75,7 @@ const projects = [
   generalDescription: "Baloran is an ambitious multiplayer FPS that blends high fantasy with futuristic technology. Using the Photon networking framework, I created a seamless multiplayer experience that supports up to 8 players in massive battle arenas. The game offers a unique twist on the FPS genre by combining magical abilities with high-tech weaponry. Players can choose from various classes, each with its own set of spells and gadgets, creating endless possibilities for strategic gameplay in both team-based and free-for-all modes."
 },
 ]
-
+// lo meto en la carpeta componentes en un projectmodal.jsx y creo un index.js para exportar e importar comonentes
 const ProjectModal = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 modal-overlay z-50">
