@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiUnrealengine, SiUnity } from 'react-icons/si'
 import './App.css'
-// meter en const.js como export const ----------------
+// meter en const.js como export const ---------------- https://www.framer.com/motion/scroll-animations/
 const projects = [
   {
     id: 1,
