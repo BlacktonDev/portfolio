@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ProjectModal } from './index'
 import { projects, navItems, socialLinks, engineIcons } from './index'
-import './App.css'
+import './index.css'
 
 const Section = ({ id, children, backgroundColor }) => {
   const ref = useRef(null)

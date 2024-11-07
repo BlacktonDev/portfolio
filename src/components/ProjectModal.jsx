@@ -1,9 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { engineIcons } from '../index'
+import { SiUnrealengine, SiUnity } from 'react-icons/si'
 
 const ProjectModal = ({ project, onClose }) => {
-  const EngineIcon = engineIcons[project.engine]
+  const EngineIcon = project.engine === 'unreal' ? SiUnrealengine : SiUnity
 
   return (
     <motion.div
@@ -13,26 +13,28 @@ const ProjectModal = ({ project, onClose }) => {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
     >
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-4xl font-bold text-blue-300">{project.title}</h2>
+      <div className="flex items-center mb-6">
+      <h2 className="flex-1 text-4xl font-bold text-blue-300 text-center">{project.title}</h2>
         <EngineIcon className="text-3xl text-blue-400" title={`${project.engine} Engine`} />
       </div>
       <p className="text-xl text-gray-300 mb-8 font-semibold">{project.description}</p>
       
-      <div className="space-y-12">
-        {project.gifs.map((gif) => (
+      <div className="space-y-8">
+        {project.gifs.map((gif, index) => (
           <motion.div 
             key={gif.id}
-            className={`flex flex-col ${gif.id % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
+            className="border-2 border-blue-500 rounded-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: gif.id * 0.2 }}
+            transition={{ delay: index * 0.2 }}
           >
-            <div className="w-full md:w-1/2 px-4 mb-4 md:mb-0">
-              <img src={gif.src} alt={`${project.title} gif ${gif.id}`} className="w-full rounded-lg shadow-lg object-cover" />
-            </div>
-            <div className="w-full md:w-1/2 px-4">
-              <p className="text-lg text-gray-300 font-semibold">{gif.description}</p>
+            <div className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div className="w-full md:w-1/2 p-4">
+                <img src={gif.src} alt={`${project.title} gif ${gif.id}`} className="w-full h-full object-cover rounded-lg shadow-lg" />
+              </div>
+              <div className="w-full md:w-1/2 p-4 flex items-center">
+                <p className="text-lg text-gray-300 font-semibold">{gif.description}</p>
+              </div>
             </div>
           </motion.div>
         ))}
