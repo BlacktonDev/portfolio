@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ProjectModal } from './index'
 import { projects, navItems, socialLinks, engineIcons } from './index'
+import { FaFolderOpen, FaCode, FaCogs, FaLightbulb, FaGamepad, FaUsers, FaBalanceScale, FaChartLine, FaPuzzlePiece, FaComments, FaShieldAlt, FaPaintBrush } from 'react-icons/fa'
 import './index.css'
 
 const Section = ({ id, children, backgroundColor }) => {
@@ -37,6 +38,20 @@ const SocialLink = ({ href, icon: Icon, color, label }) => (
   >
     <Icon size={40} />
   </motion.a>
+)
+
+const TipCard = ({ icon: Icon, title, description }) => (
+  <motion.div
+    className="bg-gray-800 rounded-xl p-6 shadow-lg"
+    whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(0,0,0,0.12)" }}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <Icon className="text-4xl text-blue-400 mb-4" />
+    <h3 className="text-xl font-bold text-blue-300 mb-2">{title}</h3>
+    <p className="text-gray-400">{description}</p>
+  </motion.div>
 )
 
 export default function App() {
@@ -162,6 +177,83 @@ export default function App() {
               </motion.div>
             )
           })}
+        </motion.div>
+      </Section>
+
+      <Section id="tips" backgroundColor="#2C3E50">
+        <motion.h2 
+          className="text-4xl font-bold mb-12 text-center"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          Game Development & Design Tips
+        </motion.h2>
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
+          <TipCard 
+            icon={FaFolderOpen}
+            title="Organize Your Project"
+            description="Use clear folder structures and naming conventions to keep your project tidy and easy to navigate."
+          />
+          <TipCard 
+            icon={FaCode}
+            title="Maintain Clean Code"
+            description="Follow coding standards, use meaningful variable names, and keep your functions small and focused."
+          />
+          <TipCard 
+            icon={FaCogs}
+            title="Optimize Performance"
+            description="Regularly profile your game, optimize resource usage, and consider using object pooling for frequently spawned entities."
+          />
+          <TipCard 
+            icon={FaLightbulb}
+            title="Iterate and Playtest"
+            description="Continuously test your game, gather feedback, and be ready to iterate on your design to create the best player experience."
+          />
+          <TipCard 
+            icon={FaGamepad}
+            title="Core Gameplay Loop"
+            description="Focus on creating a compelling core gameplay loop that keeps players engaged and coming back for more."
+          />
+          <TipCard 
+            icon={FaUsers}
+            title="Know Your Audience"
+            description="Understand your target audience and design game mechanics and features that appeal to their preferences and play styles."
+          />
+          <TipCard 
+            icon={FaBalanceScale}
+            title="Balance Difficulty"
+            description="Strike a balance between challenge and accessibility to keep players motivated without causing frustration."
+          />
+          <TipCard 
+            icon={FaChartLine}
+            title="Progression System"
+            description="Design a satisfying progression system that gives players a sense of achievement and encourages long-term engagement."
+          />
+          <TipCard 
+            icon={FaPuzzlePiece}
+            title="Modular Design"
+            description="Create modular systems and components that can be easily reused and combined to build complex gameplay mechanics."
+          />
+          <TipCard 
+            icon={FaComments}
+            title="Clear Communication"
+            description="Implement clear and intuitive UI/UX design to effectively communicate game mechanics and objectives to players."
+          />
+          <TipCard 
+            icon={FaShieldAlt}
+            title="Robust Error Handling"
+            description="Implement comprehensive error handling and logging to quickly identify and resolve issues during development and after release."
+          />
+          <TipCard 
+            icon={FaPaintBrush}
+            title="Consistent Art Style"
+            description="Develop and maintain a cohesive art style that enhances the game's atmosphere and supports its narrative and gameplay elements."
+          />
         </motion.div>
       </Section>
 
