@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import ProjectModal from "./components/ProjectModal"
