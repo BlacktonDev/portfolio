@@ -5,6 +5,7 @@ export const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
+  { id: "demoreel", label: "Demo Reel" },
   { id: "tips", label: "Tips" },
 ]
 

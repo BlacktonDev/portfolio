@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useRef } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import ProjectModal from "./components/ProjectModal"
@@ -15,7 +17,8 @@ import {
   FaComments,
   FaShieldAlt,
   FaPaintBrush,
-  FaDownload,
+  FaFileAlt,
+  FaBook,
 } from "react-icons/fa"
 import "./index.css"
 
@@ -77,7 +80,21 @@ export default function App() {
   }
 
   const downloadCV = () => {
-    window.open("/portfolio/cv.pdf", "_blank");
+    const link = document.createElement("a")
+    link.href = "/cv.pdf"
+    link.download = "Jose_Antonio_Romo_Teran_CV.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const downloadArtbook = () => {
+    const link = document.createElement("a")
+    link.href = "/artbook.pdf"
+    link.download = "Jose_Antonio_Romo_Teran_Artbook.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -88,29 +105,18 @@ export default function App() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
       >
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <ul className="flex justify-center space-x-8 flex-1">
-            {navItems.map((item) => (
-              <motion.li key={item.id} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <button
-                  onClick={() => scrollTo(item.id)}
-                  className="text-lg font-semibold hover:text-blue-400 transition-colors"
-                >
-                  {item.label}
-                </button>
-              </motion.li>
-            ))}
-          </ul>
-          <motion.button
-            onClick={downloadCV}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaDownload size={16} />
-            <span>Download CV</span>
-          </motion.button>
-        </div>
+        <ul className="flex justify-center space-x-8">
+          {navItems.map((item) => (
+            <motion.li key={item.id} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <button
+                onClick={() => scrollTo(item.id)}
+                className="text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                {item.label}
+              </button>
+            </motion.li>
+          ))}
+        </ul>
       </motion.nav>
 
       <Section id="home" backgroundColor="#1a202c">
@@ -224,6 +230,57 @@ export default function App() {
               </motion.div>
             )
           })}
+        </motion.div>
+      </Section>
+
+      <Section id="demoreel" backgroundColor="#1e3a8a">
+        <motion.h2
+          className="text-4xl font-bold mb-12 text-center"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          Demo Reel
+        </motion.h2>
+        <motion.div
+          className="w-full max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src="https://www.youtube.com/embed/KjY7W0vjGVk"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
+            ></iframe>
+          </div>
+        </motion.div>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <motion.button
+            onClick={downloadCV}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaFileAlt size={20} />
+            <span>Download CV</span>
+          </motion.button>
+          <motion.button
+            onClick={downloadArtbook}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaBook size={20} />
+            <span>Download Artbook</span>
+          </motion.button>
         </motion.div>
       </Section>
 
