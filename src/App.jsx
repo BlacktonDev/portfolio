@@ -81,7 +81,7 @@ export default function App() {
 
   const downloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/cv.pdf"
+    link.href = "/portfolio/cv.pdf"
     link.download = "Jose_Antonio_Romo_Teran_CV.pdf"
     document.body.appendChild(link)
     link.click()
@@ -90,7 +90,7 @@ export default function App() {
 
   const downloadArtbook = () => {
     const link = document.createElement("a")
-    link.href = "/artbook.pdf"
+    link.href = "/portfolio/artbook.pdf"
     link.download = "Jose_Antonio_Romo_Teran_Artbook.pdf"
     document.body.appendChild(link)
     link.click()
